@@ -1,7 +1,7 @@
 window.onload = function() {
     let background = document.getElementById("canvas");
     let background_context = background.getContext("2d");
-    let quark_num = 1500;
+    let quark_num = 1000;
     let X, Y;
     let P = [];
     let quark = function(x, y, vx, vy, r, color) {
@@ -112,39 +112,38 @@ size();
        }
     }
  
-    function loop() {
-       bg();
-       draw();
+function loop() {
+   bg();
+   draw();
+   window.requestAnimationFrame(loop);
+}
  
-       window.requestAnimationFrame(loop);
-    }
+window.onresize = size;
  
-    window.onresize = size;
+window.onmousemove = function(e) {
+   X = e.clientX;
+   Y = e.clientY;
+}
  
-    window.onmousemove = function(e) {
-       X = e.clientX;
-       Y = e.clientY;
-    }
+window.onmousedown = function() {
+   mousedown = true;
+}
  
-    window.onmousedown = function() {
-       mousedown = true;
-    }
- 
-    window.onmouseup = function() {
-       mousedown = false;
-    }
+window.onmouseup = function() {
+   mousedown = false;
+   }
     
-    var mouseover=false;
+var mouseover=false;
     
-    window.onmouseover = function() {
-       mouseover = true;
-    }
+window.onmouseover = function() {
+   mouseover = true;
+   }
     
-    window.onmouseout = function(){
-       mouseover=false;
-    }
+window.onmouseout = function(){
+   mouseover=false;
+   }
  
-    place_them();
-    loop();
+place_them();
+loop();
 
  }

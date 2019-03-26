@@ -5,6 +5,7 @@ github_link = document.getElementById('github_link');
 live_link = document.getElementById('live_link');
 how_to = document.getElementById('how_to');
 
+
 info_flag = 0;
 function display_project(num) {
     if (info_flag == 0) {
@@ -25,7 +26,7 @@ function display_project(num) {
     } else if (num == 3) {
         project_info.style.backgroundImage = "url(screens/quiz_screen.png)";
     } else if (num == 4) {
-        project_info.style.backgroundImage = "url(screens/portfolio.png)";
+        project_info.style.backgroundImage = "url(screens/uszylamsobie_screen.png)";
     }
 }
 
@@ -41,14 +42,14 @@ function display_info(num) {
         Avatar customization and weapon selections possible.`
         project_tech.innerHTML = `Vanilla JS / HTML / CSS`;
         github_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
-        live_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
+        live_link.setAttribute('href', 'DWARF_THE_GAME/index.html');
     } else if (num == 1) {
         project_text.innerHTML = `Web app made to visualize the blockchain database structure. 
         Allows standard block creation as well as custom data input. Includes fork function with 
-        a sidechain production. Simulates hash function.`
+        a sidechain production. Simulates hash function. <br><br> [work in progress]`
         project_tech.innerHTML = `Vanilla JS / HTML / CSS`;
         github_link.setAttribute('href', 'https://github.com/wiktorkisielewski/BLOCKCHAIN_SANDBOX');
-        live_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
+        live_link.setAttribute('href', 'blockchain/index.html');
     } else if (num == 2) {
         project_text.innerHTML = `This website collects bitcoin price prediction and address.
         Every submission requires a short usage of users CPU to generate a tiny amount of 
@@ -56,20 +57,20 @@ function display_info(num) {
         distributed to the correct prediction owner.`
         project_tech.innerHTML = `PHP / Vanilla JS / HTML / CSS`;
         github_link.setAttribute('href', 'https://github.com/wiktorkisielewski/Bitpredictor.org');
-        live_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
+        live_link.setAttribute('href', 'btc_predictor/index.html');
     } else if (num == 3) {
         project_text.innerHTML = `A or B, quiz-like application. It was made to allow an easy comparison 
         between standard (FIAT) money and cryptocurrencies. After finishing this quiz user gets his score 
-        and suggestions depending on what the results were. For now two languages available.`
+        and suggestions depending on what the results were. For now two languages available. <br><br> [work in progress]`
         project_tech.innerHTML = `Vanilla JS / HTML / CSS`;
         github_link.setAttribute('href', 'https://github.com/wiktorkisielewski/currency_quiz');
-        live_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
+        live_link.setAttribute('href', 'currency_quiz/index.html');
     } else if (num == 4) {
-        project_text.innerHTML = `My own portfolio, the one you are currently exploring. Designed
-        for both, desktop and mobile.  Background that interacts with users mouse moves and a few hidden easter-eggs.`
-        project_tech.innerHTML = `Vanilla JS / HTML / CSS`;
-        github_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
-        live_link.setAttribute('href', 'https://github.com/wiktorkisielewski/DWARF_THE_GAME');
+        project_text.innerHTML = `Website with an integrated online store, based on WordPress CMS. Only avaiable in Polish version.
+        <br><br> [work in progress]`;
+        project_tech.innerHTML = `WordPress / PHP / CSS`;
+        github_link.setAttribute('href', 'http://uszylamsobie.pl/');
+        live_link.setAttribute('href', 'http://uszylamsobie.pl/');
     }
 }
 function hide() {
@@ -81,6 +82,48 @@ function hide() {
         
     }
 }
+
+function display_mobile(num) {
+    if (info_flag == 0) {
+        project_text.innerHTML = ``;
+        project_tech.innerHTML = ``;
+        github_link.style.opacity = '0';
+        live_link.style.opacity = '0';
+        how_to.style.opacity = '1';
+    };
+    project_info.style.opacity = "1";
+    project_info.style.visibility = "visible";
+    if (num == 0) {
+        project_info.style.backgroundImage = "url(screens/dwarf_screen_1.png)";
+    } else if (num == 1) {
+        project_info.style.backgroundImage = "url(screens/bs_screen.png)";
+    } else if (num == 2) {
+        project_info.style.backgroundImage = "url(screens/bitpredictor_screen.png)";
+    } else if (num == 3) {
+        project_info.style.backgroundImage = "url(screens/quiz_screen.png)";
+    } else if (num == 4) {
+        project_info.style.backgroundImage = "url(screens/uszylamsobie_screen.png)";
+    }
+}
+
+function mobile_check() {
+    proj_1 = document.getElementById('proj_1');
+    proj_2 = document.getElementById('proj_2');
+    proj_3 = document.getElementById('proj_3');
+    proj_4 = document.getElementById('proj_4');
+    proj_5 = document.getElementById('proj_5');
+    if (screen.width >= 480) {
+        mobile = false;
+    } else {
+        mobile = true;
+        proj_1.setAttribute('onclick', 'display_mobile(1)');
+        proj_2.setAttribute('onclick', 'display_mobile(2)');
+        proj_3.setAttribute('onclick', 'display_mobile(3)');
+        proj_4.setAttribute('onclick', 'display_mobile(4)');
+        proj_5.setAttribute('onclick', 'display_mobile(5)');
+    }
+    return mobile;
+};
 
 (function() {
     view_port = 0;
@@ -159,7 +202,3 @@ neon_flag = 0;
             document.getElementById('click').style.display = 'none';
         });
 
-function screen_mobile() {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-}
